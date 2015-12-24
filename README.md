@@ -1,4 +1,4 @@
-# runiq-vdom
+# runiq-vdom (WIP)
 
 Component-based virtual DOM rendering DSL for Runiq.
 
