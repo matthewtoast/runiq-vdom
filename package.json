@@ -1,0 +1,32 @@
+{
+  "name": "runiq-vdom",
+  "version": "0.0.0",
+  "description": "Component-based virtual DOM rendering DSL for Runiq",
+  "main": "index.js",
+  "scripts": {
+    "start": "npm run serve & npm run watch",
+    "serve": "serve demo -p 3000",
+    "watch": "npm run watch-main & npm run watch-worker",
+    "watch-main": "watchify src/dom/harness.js -o demo/runiq-vdom.js",
+    "watch-worker": "watchify src/worker/index.js -o demo/runiq-vdom-worker.js",
+    "lint": "eslint ./src/**/*.js"
+  },
+  "author": "Matthew Trost <matthew@trost.co>",
+  "license": "ISC",
+  "dependencies": {
+    "domready": "^1.0.8",
+    "lodash.assign": "^3.2.0",
+    "lodash.clonedeep": "^3.0.2",
+    "lodash.get": "^3.7.0",
+    "lodash.set": "^3.7.4",
+    "runegrid.html-tag-names": "0.0.0",
+    "runegrid.state-wrapper": "^0.0.1",
+    "runiq": "0.0.6",
+    "virtual-dom": "^2.1.1"
+  },
+  "devDependencies": {
+    "eslint": "^1.10.1",
+    "serve": "^1.4.0",
+    "watchify": "^3.6.0"
+  }
+}

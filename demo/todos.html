@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>runiq-vdom demo - todos</title>
+  <link rel="stylesheet" href="https://cdn.rawgit.com/alexanderGugel/papier/master/dist/papier-1.0.0.min.css">
+</head>
+<body>
+  <script src="runiq-vdom.js">
+
+    (component todo-list title '($
+      '(on update payload '(set text (hash.get payload target.value)))
+      '(on add payload '(set items (list.push (get items) (get text))))
+      '(list
+         (:h3 title)
+         (:input (# onkeyup (do update)))
+         (:button "Add Item" (# onclick (do add)))
+         (:ul (list.map (get items) (lambda item '(
+           (:li item)
+         )))))
+    ) items [] text "")
+
+    (vdom (list
+      (todo-list "main" "First Todos")
+      (todo-list "other" "Second Todos")
+    ))
+
+  </script>
+</body>
+</html>
