@@ -29,7 +29,6 @@ function _descend(children, ctx, inst) {
     var out = [];
     for (var i = 0; i < children.length; i++) {
         var child = children[i];
-
         out.push(_render(child, ctx, inst));
     }
     return out;
@@ -55,9 +54,15 @@ function _processProperties(obj, ctx, inst) {
     var out = {};
     if (obj.id) out.id = obj.id;
     var attrs = obj.attributes || {};
+    // HACK: I don't remember why this is needed, but removing
+    // this condition causes the styles not to render... :(
     if (attrs.style) {
-        out.style = attrs.style;
-        delete attrs.style;
+        // If attrs.style is a string (cssText), leave it alone
+        // and it will be automatically applied as style
+        if (typeof attrs.style === 'object') {
+            out.style = attrs.style;
+            delete attrs.style;
+        }
     }
     for (var name in attrs) {
         if (name.slice(0, 2) === EVENT_ATTR_PREFIX) {

@@ -7,6 +7,11 @@ var TAG_PREFIX = ':';
 module.exports = function(dsl) {
     var instance = new Instance();
 
+    /**
+     * Produce a tree object in the VDOM renderer format
+     * @function vdom
+     * @returns {Hash}
+     */
     dsl.defineFunction('vdom', {
         signature: [true,'hash'],
         implementation: function() {
@@ -23,6 +28,18 @@ module.exports = function(dsl) {
             }
         });
     }
+
+    /**
+     * Produce a style object in the VDOM renderer format
+     * @function style
+     * @returns {Hash}
+     */
+    dsl.defineFunction('style', {
+        signature: [true,'hash'],
+        implementation: function() {
+            return instance.style(this);
+        }
+    });
 
     return dsl;
 };
