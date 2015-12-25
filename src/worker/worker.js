@@ -47,6 +47,7 @@ function send(id, via, name, payload) {
         via: via,
         name: name,
         payload: payload,
+        output: interpreter.output(true),
         state: JSON.parse(JSON.stringify(interpreter.state()))
     });
 }

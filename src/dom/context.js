@@ -39,14 +39,15 @@ Context.prototype.handle = function(event) {
         event.data.name,
         event.data.payload,
         event.data.via,
-        event.data.state
+        event.data.state,
+        event.data.output
     );
 };
 
-Context.prototype.delegate = function(id, name, payload, via, state) {
+Context.prototype.delegate = function(id, name, payload, via, state, outputs) {
     for (var i = 0; i < this.listeners.length; i++) {
         var listener = this.listeners[i];
-        listener(id, name, payload, via, state);
+        listener(id, name, payload, via, state, outputs);
     }
     if (name === ERROR_NAME) console.error(payload);
     if (via !== RUNIQ_SOURCE_NAME) {
