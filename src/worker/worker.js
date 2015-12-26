@@ -41,15 +41,23 @@ function responder(id, name) {
     };
 }
 
+function _decycle(thing) {
+    return JSON.parse(JSON.stringify(thing));
+}
+
 function send(id, via, name, payload) {
-    return postMessage({
+    var output = interpreter.output(true);
+    var state = interpreter.state();
+    if (payload === undefined) payload = null;
+    var message = {
         id: id,
         via: via,
         name: name,
         payload: payload,
-        output: interpreter.output(true),
-        state: JSON.parse(JSON.stringify(interpreter.state()))
-    });
+        output: _decycle(output),
+        state: _decycle(state)
+    };
+    return postMessage(message);
 }
 
 function handler(id, name, payload, original) {

@@ -51,7 +51,7 @@ Context.prototype.delegate = function(id, name, payload, via, state, outputs) {
     }
     if (name === ERROR_NAME) console.error(payload);
     if (via !== RUNIQ_SOURCE_NAME) {
-        if (payload.render) {
+        if (payload && payload.render) {
             this.render(id, name, payload.render, via);
         }
     }

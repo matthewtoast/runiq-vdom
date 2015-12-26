@@ -1,6 +1,6 @@
 {
   "name": "runiq-vdom",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Component-based virtual DOM rendering DSL for Runiq",
   "main": "index.js",
   "scripts": {
