@@ -1,6 +1,6 @@
 {
   "name": "runiq-vdom",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Component-based virtual DOM rendering DSL for Runiq",
   "main": "index.js",
   "scripts": {
@@ -22,7 +22,7 @@
     "runegrid.css-query-object": "0.0.0",
     "runegrid.html-tag-names": "0.0.0",
     "runegrid.state-wrapper": "^0.0.1",
-    "runiq": "0.0.8",
+    "runiq": "0.0.10",
     "virtual-dom": "^2.1.1"
   },
   "devDependencies": {
